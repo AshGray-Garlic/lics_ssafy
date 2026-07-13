@@ -93,9 +93,9 @@
             
             <!-- Multi-page SPA Dynamic Navigation -->
             <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
-                <a href="#home" class="nav-link py-5 px-1 border-b-2 border-transparent hover:text-brand-accentGreen transition-all duration-300 text-slate-400">철학 & 홈</a>
+                <a href="#home" class="nav-link py-5 px-1 border-b-2 border-transparent hover:text-brand-accentGreen transition-all duration-300 text-slate-400">홈</a>
+                <a href="#about" class="nav-link py-5 px-1 border-b-2 border-transparent hover:text-brand-accentGreen transition-all duration-300 text-slate-400">자기소개</a>
                 <a href="#experience" class="nav-link py-5 px-1 border-b-2 border-transparent hover:text-brand-accentGreen transition-all duration-300 text-slate-400">경험적 역량</a>
-                <a href="#deepfocus" class="nav-link py-5 px-1 border-b-2 border-transparent hover:text-brand-accentGreen transition-all duration-300 text-slate-400">몰입의 기록</a>
                 <a href="#contact" class="nav-link py-5 px-1 border-b-2 border-transparent hover:text-brand-accentGreen transition-all duration-300 text-slate-400">공대원 모집</a>
             </nav>
 
@@ -112,9 +112,9 @@
 
         <!-- Mobile Dropout Menu -->
         <div id="mobileMenu" class="hidden md:hidden bg-brand-dark border-b border-slate-800/80 flex flex-col px-6 py-4 gap-4">
-            <a href="#home" class="mobile-nav-link text-sm font-medium text-slate-400 py-1">철학 & 홈</a>
+            <a href="#home" class="mobile-nav-link text-sm font-medium text-slate-400 py-1">홈</a>
+            <a href="#about" class="mobile-nav-link text-sm font-medium text-slate-400 py-1">자기소개</a>
             <a href="#experience" class="mobile-nav-link text-sm font-medium text-slate-400 py-1">경험적 역량</a>
-            <a href="#deepfocus" class="mobile-nav-link text-sm font-medium text-slate-400 py-1">몰입의 기록</a>
             <a href="#contact" class="mobile-nav-link text-sm font-medium text-slate-400 py-1">공대원 모집</a>
         </div>
     </header>
@@ -148,8 +148,8 @@
                     </p>
 
                     <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <a href="#experience" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-brand-card hover:bg-slate-800 border border-slate-700 hover:border-brand-accentGreen text-white text-sm font-semibold tracking-wide transition-all duration-300 flex items-center justify-center gap-2 group shadow-lg">
-                            <span>역량 검증하기 (취미편)</span>
+                        <a href="#about" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-brand-card hover:bg-slate-800 border border-slate-700 hover:border-brand-accentGreen text-white text-sm font-semibold tracking-wide transition-all duration-300 flex items-center justify-center gap-2 group shadow-lg">
+                            <span>나를 알아보기 (자기소개)</span>
                             <i class="fa-solid fa-arrow-right text-brand-accentGreen group-hover:translate-x-1 transition-transform"></i>
                         </a>
                         <a href="#contact" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-gradient-to-r from-emerald-500/10 to-cyan-500/10 hover:from-emerald-500/20 hover:to-cyan-500/20 border border-brand-accentGreen/30 text-brand-accentGreen text-sm font-semibold tracking-wide transition-all duration-300 flex items-center justify-center gap-2">
@@ -176,7 +176,7 @@
                             </div>
                             <h3 class="text-xl font-bold text-white mb-3">유기적 협업과 팀워크</h3>
                             <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                                공동의 목표 달성을 위해 실시간 소통 흐름을 방해하는 병목을 파악하고 제거합니다. 0.1초의 정확한 브리핑과 상호 신뢰를 바탕으로 견고한 얼라이언스를 구축합니다.
+                                공동의 목표 달성을 위해 실시간 소통 흐름을 방해하는 병목을 파악하고 제거합니다. 정확한 브리핑과 상호 신뢰를 바탕으로 견고한 얼라이언스를 구축합니다.
                             </p>
                             <div class="text-xs code-font text-brand-accentGreen">import { synergy } from 'teamwork';</div>
                         </div>
@@ -209,6 +209,106 @@
             </section>
         </div>
 
+        <!-- PAGE 1.5: ABOUT ME (자기소개) -->
+        <div id="page-about" class="page-view hidden opacity-0">
+            <section class="py-16 bg-brand-dark relative overflow-hidden">
+                <!-- Sleek tech background lines -->
+                <div class="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:32px_32px] opacity-20"></div>
+                <div class="max-w-5xl mx-auto px-6 relative z-10">
+                    <!-- Title -->
+                    <div class="text-center max-w-xl mx-auto mb-12">
+                        <span class="text-brand-accentGreen code-font text-xs uppercase tracking-widest font-bold">IDENTITY PROFILING</span>
+                        <h2 class="text-3xl font-bold text-white mt-2">나를 소개합니다</h2>
+                        <p class="text-slate-400 text-sm mt-3">예외 없는 설계를 지향하는 개발자 김의성의 데이터 프로필을 공개합니다.</p>
+                        <div class="w-12 h-1 bg-brand-accentGreen mx-auto mt-4 rounded-full"></div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                        <!-- Left: Profile Photo Card -->
+                        <div class="md:col-span-5 flex flex-col items-center">
+                            <div class="relative group">
+                                <!-- Glowing gradient ring -->
+                                <div class="absolute -inset-1.5 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-2xl blur opacity-30 group-hover:opacity-75 transition duration-500"></div>
+                                <!-- Photo Container -->
+                                <div class="relative bg-brand-card p-2 rounded-2xl border border-slate-700 w-64 h-80 sm:w-72 sm:h-96 overflow-hidden flex items-center justify-center">
+                                    <img src="김의성.JPG" alt="개발자 김의성" class="w-full h-full object-cover rounded-xl grayscale hover:grayscale-0 transition-all duration-500" onerror="this.src='https://placehold.co/600x800/161D30/10B981?text=Kim+Ui-Seong'">
+                                </div>
+                            </div>
+                            <div class="mt-6 text-center">
+                                <span class="px-3 py-1 rounded-full bg-slate-900 border border-emerald-500/30 text-brand-accentGreen text-xs code-font">
+                                    ROLE: FRONTEND_DEV
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Right: Developer Spec / Metadata Grid -->
+                        <div class="md:col-span-7 space-y-6">
+                            <div class="bg-brand-card/60 backdrop-blur-sm border border-slate-800 p-6 rounded-2xl space-y-4">
+                                <h3 class="text-lg font-bold text-white flex items-center gap-2 border-b border-slate-800 pb-3">
+                                    <i class="fa-solid fa-address-card text-brand-accentGreen"></i>
+                                    Basic Metadata
+                                </h3>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 code-font">
+                                    <div class="bg-slate-900/40 p-3 rounded-xl border border-slate-800/50">
+                                        <span class="text-[10px] text-slate-500 block">NAME</span>
+                                        <span class="text-sm font-semibold text-white">김의성 (Kim Ui-Seong)</span>
+                                    </div>
+                                    <div class="bg-slate-900/40 p-3 rounded-xl border border-slate-800/50">
+                                        <span class="text-[10px] text-slate-500 block">BIRTHDATE</span>
+                                        <span class="text-sm font-semibold text-white">1997.07.28.</span>
+                                    </div>
+                                    <div class="bg-slate-900/40 p-3 rounded-xl border border-slate-800/50">
+                                        <span class="text-[10px] text-slate-500 block">MBTI PERSONALITY</span>
+                                        <span class="text-sm font-semibold text-brand-accentBlue flex items-center gap-1.5">
+                                            INFJ <span class="text-[10px] bg-cyan-500/10 px-1.5 py-0.5 rounded text-cyan-400 font-normal">옹호자</span>
+                                        </span>
+                                    </div>
+                                    <div class="bg-slate-900/40 p-3 rounded-xl border border-slate-800/50">
+                                        <span class="text-[10px] text-slate-500 block">CURRENT_STATUS</span>
+                                        <span class="text-sm font-semibold text-brand-accentGreen flex items-center gap-1.5">
+                                            <span class="w-2 h-2 rounded-full bg-brand-accentGreen animate-ping"></span> Searching for synergy
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- MBTI Details Box -->
+                            <div class="bg-brand-card/60 backdrop-blur-sm border border-slate-800 p-6 rounded-2xl">
+                                <h3 class="text-lg font-bold text-white flex items-center gap-2 border-b border-slate-800 pb-3 mb-4">
+                                    <i class="fa-solid fa-brain text-brand-accentBlue"></i>
+                                    INFJ 성향 리포트 (통찰력과 집요함의 조화)
+                                </h3>
+                                <p class="text-xs sm:text-sm text-slate-400 leading-relaxed mb-4 break-keep">
+                                    MBTI 유형 중 가장 독립적이면서도 가치 지향적인 <span class="text-brand-accentBlue font-semibold">INFJ(선의의 옹호자)</span>로서, 깊은 영감과 통찰력을 토대로 협업 환경에 긍정적인 가치를 공유합니다. 조용하고 사려 깊은 태도 뒤에 숨겨진 <strong class="text-brand-accentGreen font-bold">'철저함과 논리적 통찰력'</strong>은 사소한 오류도 놓치지 않고 구조화된 최적의 코드를 고안해 내는 강력한 성장 무기입니다.
+                                </p>
+                                <!-- Visual MBTI bars -->
+                                <div class="space-y-3">
+                                    <div>
+                                        <div class="flex justify-between text-xs code-font mb-1">
+                                            <span class="text-slate-500">직관형 (Intuition / 유기적 패턴 발견)</span>
+                                            <span class="text-brand-accentGreen">85%</span>
+                                        </div>
+                                        <div class="w-full h-1.5 bg-slate-900 rounded-full overflow-hidden">
+                                            <div class="h-full bg-brand-accentGreen" style="width: 85%"></div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="flex justify-between text-xs code-font mb-1">
+                                            <span class="text-slate-500">계획형 (Judging / 빈틈없는 구조 설계)</span>
+                                            <span class="text-brand-accentBlue">90%</span>
+                                        </div>
+                                        <div class="w-full h-1.5 bg-slate-900 rounded-full overflow-hidden">
+                                            <div class="h-full bg-brand-accentBlue" style="width: 90%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
         <!-- PAGE 2: EXPERIENCE PROOF -->
         <div id="page-experience" class="page-view hidden opacity-0">
             <section class="py-16 bg-brand-dark relative">
@@ -222,7 +322,7 @@
 
                     <!-- Dashboard Grid Layout -->
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-                        <!-- Left Nav Options (2 Hobbies) -->
+                        <!-- Left Nav Options (3 Hobbies) -->
                         <div class="lg:col-span-4 flex flex-col gap-4">
                             <button id="tabGame" class="w-full text-left p-6 rounded-2xl bg-brand-card border border-brand-accentGreen/30 hover:border-brand-accentGreen text-white transition-all duration-300 focus:outline-none flex items-start gap-4 shadow-xl">
                                 <div class="p-3 bg-emerald-500/10 text-brand-accentGreen rounded-xl">
@@ -243,6 +343,17 @@
                                     <span class="text-[10px] code-font text-brand-accentBlue font-bold block mb-1">02. DECRYPTION / LOGIC</span>
                                     <h4 class="text-lg font-bold text-white">오프라인 방탈출</h4>
                                     <p class="text-xs text-slate-400 mt-1">제한 시간 60분 속에서 숨겨진 패턴과 단서를 구조화하는 디버깅</p>
+                                </div>
+                            </button>
+
+                            <button id="tabRacing" class="w-full text-left p-6 rounded-2xl bg-brand-card/40 border border-slate-800 hover:border-brand-accentGreen text-slate-400 hover:text-white transition-all duration-300 focus:outline-none flex items-start gap-4">
+                                <div class="p-3 bg-emerald-500/10 text-brand-accentGreen rounded-xl">
+                                    <i class="fa-solid fa-gauge-high text-2xl"></i>
+                                </div>
+                                <div class="flex-grow">
+                                    <span class="text-[10px] code-font text-brand-accentGreen font-bold block mb-1">03. OPTIMIZATION / PERFORMANCE</span>
+                                    <h4 class="text-lg font-bold text-white">심레이싱 (Telemetry)</h4>
+                                    <p class="text-xs text-slate-400 mt-1">1/1000초 단위 패스트랩 단축을 위해 주행 데이터를 집요하게 깎아내는 탐구</p>
                                 </div>
                             </button>
                         </div>
@@ -266,6 +377,11 @@
                             <div class="p-8 flex-grow">
                                 <!-- GAME PANEL (Default Active) -->
                                 <div id="panelGame" class="space-y-6 block">
+                                    <!-- Interactive Game Banner Image -->
+                                    <div class="relative h-44 sm:h-52 rounded-2xl overflow-hidden border border-slate-800/80 group">
+                                        <img src="로스트아크.jpg" alt="로스트아크 오더" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" onerror="this.src='https://placehold.co/800x400/161D30/10B981?text=LOST+ARK'">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-brand-card via-brand-card/20 to-transparent"></div>
+                                    </div>
                                     <div>
                                         <h3 class="text-xl font-bold text-white flex items-center gap-2">
                                             <i class="fa-solid fa-headset text-brand-accentGreen"></i> 
@@ -340,6 +456,11 @@
 
                                 <!-- ESCAPE PANEL (Hidden initially) -->
                                 <div id="panelEscape" class="space-y-6 hidden">
+                                    <!-- Interactive Escape Room Image -->
+                                    <div class="relative h-44 sm:h-52 rounded-2xl overflow-hidden border border-slate-800/80 group">
+                                        <img src="방탈출.jpg" alt="방탈출 문제해결" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" onerror="this.src='https://placehold.co/800x400/161D30/06B6D4?text=ESCAPE+ROOM'">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-brand-card via-brand-card/20 to-transparent"></div>
+                                    </div>
                                     <div>
                                         <h3 class="text-xl font-bold text-white flex items-center gap-2">
                                             <i class="fa-solid fa-eye text-brand-accentBlue"></i> 
@@ -395,122 +516,74 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
 
-        <!-- PAGE 3: DEEP IMMERSION / DEEP FOCUS -->
-        <div id="page-deepfocus" class="page-view hidden opacity-0">
-            <section class="py-16 bg-slate-950 relative overflow-hidden">
-                <!-- Background light effect -->
-                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl h-[400px] bg-brand-accentGreen/5 rounded-full filter blur-[120px] pointer-events-none"></div>
-
-                <div class="max-w-6xl mx-auto px-6 relative z-10">
-                    <div class="text-center max-w-xl mx-auto mb-16">
-                        <span class="text-brand-accentGreen code-font text-xs uppercase tracking-widest font-bold">DEEP FOCUS</span>
-                        <h2 class="text-3xl font-bold text-white mt-2">사소한 곳에서도 발휘되는 지독한 몰입</h2>
-                        <p class="text-slate-400 text-sm mt-3">단순한 레저도 집요한 기록과 패턴 분석을 거쳐 성장의 기반으로 변모시킵니다.</p>
-                        <div class="w-12 h-1 bg-brand-accentGreen mx-auto mt-4 rounded-full"></div>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <!-- Hobby 1: Room Escape Analytics -->
-                        <div class="bg-brand-card/40 border border-slate-800/80 rounded-2xl overflow-hidden hover:border-emerald-500/30 transition-all duration-300 flex flex-col justify-between">
-                            <div class="relative overflow-hidden h-48 w-full group">
-                                <img src="방탈출.jpg" alt="방탈출 분석" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.src='https://placehold.co/600x400/161D30/10B981?text=Escape+Room+Analysis'">
-                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent"></div>
-                            </div>
-                            <div class="p-6 flex-grow flex flex-col justify-between">
-                                <div class="flex items-center gap-3 mb-4">
-                                    <span class="p-2.5 rounded-lg bg-emerald-500/10 text-brand-accentGreen">
-                                        <i class="fa-solid fa-magnifying-glass"></i>
-                                    </span>
+                                <!-- RACING PANEL (Hidden initially) -->
+                                <div id="panelRacing" class="space-y-6 hidden">
+                                    <!-- Interactive Sim Racing Image -->
+                                    <div class="relative h-44 sm:h-52 rounded-2xl overflow-hidden border border-slate-800/80 group">
+                                        <img src="심레이싱.jpg" alt="심레이싱 텔레메트리" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" onerror="this.src='https://placehold.co/800x400/161D30/10B981?text=SIM+RACING'">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-brand-card via-brand-card/20 to-transparent"></div>
+                                    </div>
                                     <div>
-                                        <h3 class="text-lg font-bold text-white">방탈출 단서 직관 & 고속 추론</h3>
-                                        <span class="text-[10px] code-font text-slate-500">CLUE DETECTION SENSE</span>
+                                        <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                                            <i class="fa-solid fa-stopwatch text-brand-accentGreen"></i> 
+                                            0.001초의 패스트랩 단축을 위한 한계점 돌파와 최적화
+                                        </h3>
+                                        <p class="text-sm text-slate-400 mt-2 leading-relaxed">
+                                            심레이싱에서 완벽한 랩타임을 만들어내는 과정은 프론트엔드의 성능 튜닝(Lighthouse 최적화, 불필요한 리렌더링 탐색)과 맞닿아 있습니다. 텔레메트리 데이터 그래프를 분석하여 0.1%의 마찰력 누수 구간을 찾고 최단 드라이빙 라인을 고착화합니다.
+                                        </p>
                                     </div>
-                                </div>
-                                <p class="text-sm text-slate-400 leading-relaxed mb-6">
-                                    방탈출 테마에 진입하면 조명, 소품의 아주 미세한 변칙성마저 본능적으로 인지합니다. 이질적인 두 가지 단서 속 숨겨진 출제자의 인과관계를 즉각 발견하고 추론해 냄으로써, 복잡하고 막막한 문제를 예리하고 명료하게 해결해 나가는 극단의 직관적 문제 해결 능력을 지향합니다.
-                                </p>
-                                
-                                <!-- Visual representation / Stats bar -->
-                                <div class="space-y-2">
-                                    <div class="flex items-center justify-between text-xs code-font">
-                                        <span class="text-slate-400">단서 직관 발견율 (Clue Detection)</span>
-                                        <span class="text-brand-accentGreen">94%</span>
-                                    </div>
-                                    <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
-                                        <div class="h-full bg-brand-accentGreen w-[94%]"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
-                        <!-- Hobby 2: MMO Frame Tactics -->
-                        <div class="bg-brand-card/40 border border-slate-800/80 rounded-2xl overflow-hidden hover:border-cyan-500/30 transition-all duration-300 flex flex-col justify-between">
-                            <div class="relative overflow-hidden h-48 w-full group">
-                                <img src="로스트아크.jpg" alt="로스트아크 프레임 분석" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.src='https://placehold.co/600x400/161D30/06B6D4?text=LostArk+Frame+Tactics'">
-                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent"></div>
-                            </div>
-                            <div class="p-6 flex-grow flex flex-col justify-between">
-                                <div class="flex items-center gap-3 mb-4">
-                                    <span class="p-2.5 rounded-lg bg-cyan-500/10 text-brand-accentBlue">
-                                        <i class="fa-solid fa-chart-line"></i>
-                                    </span>
-                                    <div>
-                                        <h3 class="text-lg font-bold text-white">게임 프레임 택틱 정량화</h3>
-                                        <span class="text-[10px] code-font text-slate-500">FRAME-PERFECT CO-OP</span>
-                                    </div>
-                                </div>
-                                <p class="text-sm text-slate-400 leading-relaxed mb-6">
-                                    로스트아크 레이드 보스의 고유 전조 모션을 프레임 단위 동영상으로 분석해 대시 시트화했습니다. 파티원들이 전조 0.3초 내에 직관적으로 회피하거나 기믹 파훼 버프를 맞춤형으로 발동할 수 있도록 가이드라인을 제공합니다.
-                                </p>
-                                
-                                <!-- Visual representation / Stats bar -->
-                                <div class="space-y-2">
-                                    <div class="flex items-center justify-between text-xs code-font">
-                                        <span class="text-slate-400">오더 기믹 파훼 성공률</span>
-                                        <span class="text-brand-accentBlue">98.5%</span>
-                                    </div>
-                                    <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
-                                        <div class="h-full bg-brand-accentBlue w-[98.5%]"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                                    <!-- Interactive Laptime Optimizer -->
+                                    <div class="bg-brand-dark/60 rounded-2xl border border-slate-800 p-5">
+                                        <h4 class="text-xs font-bold text-slate-400 code-font mb-3 uppercase tracking-wider flex items-center gap-2">
+                                            <i class="fa-solid fa-chart-area text-brand-accentGreen"></i> TELEMETRY LAP-TIME OPTIMIZER
+                                        </h4>
+                                        <p class="text-xs text-slate-400 mb-4">가장 이상적인 주행 라인(Line)과 브레이킹 빌드(Braking)를 엮어 최적의 랩타임을 수립해 보세요.</p>
+                                        
+                                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                                            <div>
+                                                <label class="block text-[10px] font-bold text-slate-500 uppercase mb-2 code-font">주행 라인 선택 (Line Path)</label>
+                                                <select id="raceLine" onchange="calculateLaptime()" class="w-full bg-slate-900 border border-slate-800 text-xs text-slate-300 rounded-xl p-3 outline-none focus:border-brand-accentGreen">
+                                                    <option value="standard">일반 주행 라인 (Suboptimal Line)</option>
+                                                    <option value="outInOut">Out-In-Out 정석 라인</option>
+                                                    <option value="lateApex" selected>Late Apex (코너 탈출 가속 최적화)</option>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <label class="block text-[10px] font-bold text-slate-500 uppercase mb-2 code-font">제동 정밀 제어 (Braking Force)</label>
+                                                <select id="raceBrake" onchange="calculateLaptime()" class="w-full bg-slate-900 border border-slate-800 text-xs text-slate-300 rounded-xl p-3 outline-none focus:border-brand-accentGreen">
+                                                    <option value="none">단순 Full On / Off 브레이킹</option>
+                                                    <option value="trail" selected>트레일 브레이킹 (타이어 그립 유지)</option>
+                                                </select>
+                                            </div>
+                                        </div>
 
-                        <!-- Hobby 3: Sim Racing Optimization -->
-                        <div class="bg-brand-card/40 border border-slate-800/80 rounded-2xl overflow-hidden hover:border-emerald-500/30 transition-all duration-300 flex flex-col justify-between">
-                            <div class="relative overflow-hidden h-48 w-full group">
-                                <img src="심레이싱.jpg" alt="심레이싱 주행" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.src='https://placehold.co/600x400/161D30/10B981?text=Sim+Racing+Telemetry'">
-                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent"></div>
-                            </div>
-                            <div class="p-6 flex-grow flex flex-col justify-between">
-                                <div class="flex items-center gap-3 mb-4">
-                                    <span class="p-2.5 rounded-lg bg-emerald-500/10 text-brand-accentGreen">
-                                        <i class="fa-solid fa-car-side"></i>
-                                    </span>
-                                    <div>
-                                        <h3 class="text-lg font-bold text-white">심레이싱 최적 주행 라인 설계</h3>
-                                        <span class="text-[10px] code-font text-slate-500">1/1000s TELEMETRY OPTIMIZATION</span>
+                                        <div class="bg-brand-dark rounded-xl p-4 border border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4">
+                                            <div>
+                                                <div class="text-xs text-slate-500 code-font">TARGET_LAPTIME (SPA-FRANCORCHAMPS)</div>
+                                                <div id="lapTimeText" class="text-2xl font-black text-brand-accentGreen code-font mt-1">2:14.342</div>
+                                            </div>
+                                            <div class="flex flex-col items-end">
+                                                <span id="lapTimeDiff" class="text-xs code-font text-emerald-400 font-bold">-1.240s ⚡ FASTEST LAP</span>
+                                                <span class="text-[9px] text-slate-500 code-font">vs Session Average</span>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                                <p class="text-sm text-slate-400 leading-relaxed mb-6">
-                                    단순한 드라이빙 게임을 넘어 주행 중 타이어의 마찰력(Tire Grip Limit), 브레이킹 압력 데이터, 하중 이동을 텔레메트리 뷰어로 피드백해 분석합니다. 최단 주행 경로인 Out-In-Out과 에이펙스(Apex) 통과 속도를 극단으로 제어해 1/1000초 단축을 집요하게 이끌어냅니다.
-                                </p>
-                                
-                                <!-- Visual representation / Stats bar -->
-                                <div class="space-y-2">
-                                    <div class="flex items-center justify-between text-xs code-font">
-                                        <span class="text-slate-400">최적 레이싱 라인 일치도 (Apex Consistency)</span>
-                                        <span class="text-brand-accentGreen">99.1%</span>
-                                    </div>
-                                    <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
-                                        <div class="h-full bg-brand-accentGreen w-[99.1%]"></div>
+
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                        <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800/60">
+                                            <span class="text-[10px] code-font text-emerald-400 block font-bold mb-1">정량적 데이터 피드백 루프</span>
+                                            <p class="text-xs text-slate-400 leading-relaxed">
+                                                감에 의존하지 않고 주행 속도, 가속 페달, 브레이킹 데이터를 그래프화하여 최적의 에이펙스(Apex) 정점에 도달했는지 정밀 분석
+                                            </p>
+                                        </div>
+                                        <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800/60">
+                                            <span class="text-[10px] code-font text-emerald-400 block font-bold mb-1">극단의 점진적 한계 튜닝</span>
+                                            <p class="text-xs text-slate-400 leading-relaxed">
+                                                하중 이동 타이밍과 각도를 1/1000초 오차 범위 내로 조율해가며 매끄러운 랩타임을 완성하는 집요한 일관성 구현
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -572,6 +645,17 @@
                                         <i class="fa-solid fa-paper-plane"></i> SEND_MESSAGE();
                                     </button>
                                 </div>
+
+                                <!-- Dynamic Guestbook Section (공대원 명부) -->
+                                <div class="mt-8 pt-6 border-t border-slate-800/80">
+                                    <h5 class="text-[10px] font-bold uppercase tracking-wider text-slate-500 code-font mb-4 flex items-center gap-2">
+                                        <i class="fa-solid fa-users text-brand-accentGreen"></i> CURRENT_PARTY_MEMBERS (공대원 명부)
+                                    </h5>
+                                    <!-- Scrollable Roster Container -->
+                                    <div id="guestbookList" class="space-y-3 max-h-[300px] overflow-y-auto pr-1">
+                                        <!-- Dynamic Guestbook Cards go here -->
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -596,8 +680,8 @@
                 <a href="mailto:licsrang@gmail.com" class="hover:text-brand-accentGreen transition-colors duration-200">
                     <i class="fa-solid fa-envelope text-base"></i> Email
                 </a>
-                <a href="#" class="hover:text-brand-accentGreen transition-colors duration-200">
-                    <i class="fa-brands fa-linkedin text-base"></i> LinkedIn
+                <a href="https://www.instagram.com/ash._.gray_/" target="_blank" rel="noopener noreferrer" class="hover:text-brand-accentGreen transition-colors duration-200">
+                    <i class="fa-brands fa-instagram text-base"></i> Instagram
                 </a>
             </div>
         </div>
@@ -608,8 +692,8 @@
         // 1. Multi-page Dynamic Router
         const pageViews = {
             home: document.getElementById('page-home'),
+            about: document.getElementById('page-about'),
             experience: document.getElementById('page-experience'),
-            deepfocus: document.getElementById('page-deepfocus'),
             contact: document.getElementById('page-contact')
         };
 
@@ -627,21 +711,25 @@
             // Hide and Reset active layouts
             Object.keys(pageViews).forEach(key => {
                 const view = pageViews[key];
-                view.classList.add('hidden');
-                view.classList.remove('opacity-100');
-                view.classList.add('opacity-0');
+                if (view) {
+                    view.classList.add('hidden');
+                    view.classList.remove('opacity-100');
+                    view.classList.add('opacity-0');
+                }
             });
 
             // Display Active Page with Animation Frame
             const activeView = pageViews[validPageId];
-            activeView.classList.remove('hidden');
-            
-            requestAnimationFrame(() => {
-                setTimeout(() => {
-                    activeView.classList.remove('opacity-0');
-                    activeView.classList.add('opacity-100');
-                }, 50);
-            });
+            if (activeView) {
+                activeView.classList.remove('hidden');
+                
+                requestAnimationFrame(() => {
+                    setTimeout(() => {
+                        activeView.classList.remove('opacity-0');
+                        activeView.classList.add('opacity-100');
+                    }, 50);
+                });
+            }
 
             // Update Navigation Menu Active Status
             navLinks.forEach(link => {
@@ -679,52 +767,52 @@
             navigateTo(window.location.hash);
         });
 
-        // Initialize Router on Load
-        window.addEventListener('load', () => {
-            navigateTo(window.location.hash);
-        });
-
-        // Mobile Menu Button Toggle
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-
-        // 2. Hobby Tab Toggle (Game vs Escape inside Experience View)
+        // 2. Hobby Tab Toggle (Game vs Escape vs Racing inside Experience View)
         const tabGame = document.getElementById('tabGame');
         const tabEscape = document.getElementById('tabEscape');
+        const tabRacing = document.getElementById('tabRacing');
         const panelGame = document.getElementById('panelGame');
         const panelEscape = document.getElementById('panelEscape');
+        const panelRacing = document.getElementById('panelRacing');
         const terminalTitle = document.getElementById('terminalTitle');
 
+        function setActiveTab(activeTab, activePanel, title) {
+            // Reset all tabs
+            [tabGame, tabEscape, tabRacing].forEach(tab => {
+                if (!tab) return;
+                tab.classList.remove('bg-brand-card', 'border-brand-accentGreen/30', 'border-brand-accentBlue/30', 'text-white');
+                tab.classList.add('bg-brand-card/40', 'border-slate-800', 'text-slate-400');
+            });
+
+            // Hide all panels
+            [panelGame, panelEscape, panelRacing].forEach(panel => {
+                if (!panel) return;
+                panel.classList.add('hidden');
+                panel.classList.remove('block');
+            });
+
+            // Highlight active tab
+            const isBlue = activeTab === tabEscape;
+            activeTab.classList.add('bg-brand-card', isBlue ? 'border-brand-accentBlue/30' : 'border-brand-accentGreen/30', 'text-white');
+            activeTab.classList.remove('bg-brand-card/40', 'border-slate-800', 'text-slate-400');
+
+            activePanel.classList.remove('hidden');
+            activePanel.classList.add('block');
+
+            terminalTitle.innerText = title;
+        }
+
         tabGame.addEventListener('click', () => {
-            tabGame.classList.add('bg-brand-card', 'border-brand-accentGreen/30', 'text-white');
-            tabGame.classList.remove('bg-brand-card/40', 'border-slate-800', 'text-slate-400');
-            
-            tabEscape.classList.add('bg-brand-card/40', 'border-slate-800', 'text-slate-400');
-            tabEscape.classList.remove('bg-brand-card', 'border-brand-accentBlue/30', 'text-white');
-
-            panelGame.classList.remove('hidden');
-            panelGame.classList.add('block');
-            panelEscape.classList.add('hidden');
-            panelEscape.classList.remove('block');
-
-            terminalTitle.innerText = "Teamplay_Coordinations.sh";
+            setActiveTab(tabGame, panelGame, "Teamplay_Coordinations.sh");
         });
 
         tabEscape.addEventListener('click', () => {
-            tabEscape.classList.add('bg-brand-card', 'border-brand-accentBlue/30', 'text-white');
-            tabEscape.classList.remove('bg-brand-card/40', 'border-slate-800', 'text-slate-400');
+            setActiveTab(tabEscape, panelEscape, "Logical_Problem_Solving.js");
+        });
 
-            tabGame.classList.add('bg-brand-card/40', 'border-slate-800', 'text-slate-400');
-            tabGame.classList.remove('bg-brand-card', 'border-brand-accentGreen/30', 'text-white');
-
-            panelEscape.classList.remove('hidden');
-            panelEscape.classList.add('block');
-            panelGame.classList.add('hidden');
-            panelGame.classList.remove('block');
-
-            terminalTitle.innerText = "Logical_Problem_Solving.js";
+        tabRacing.addEventListener('click', () => {
+            setActiveTab(tabRacing, panelRacing, "Telemetry_Laptime_Optimizer.py");
+            calculateLaptime(); // Trigger telemetry values calculation
         });
 
 
@@ -779,6 +867,37 @@
         calculateSynergy();
 
 
+        // 3-1. Sim Racing Laptime Calculator Function
+        function calculateLaptime() {
+            const line = document.getElementById('raceLine').value;
+            const brake = document.getElementById('raceBrake').value;
+            let baseLap = 138.580; // Default base lap (2:18.580)
+            
+            if (line === 'outInOut') baseLap -= 2.450;
+            else if (line === 'lateApex') baseLap -= 3.820;
+            
+            if (brake === 'trail') baseLap -= 1.640;
+            
+            const min = Math.floor(baseLap / 60);
+            const sec = Math.floor(baseLap % 60);
+            const ms = Math.floor((baseLap % 1) * 1000);
+            
+            const timeString = `${min}:${String(sec).padStart(2, '0')}.${String(ms).padStart(3, '0')}`;
+            const diff = (baseLap - 138.580).toFixed(3);
+            
+            document.getElementById('lapTimeText').innerText = timeString;
+            const diffEl = document.getElementById('lapTimeDiff');
+            
+            if (diff < 0) {
+                diffEl.innerText = `${diff}s ⚡ FASTEST LAP`;
+                diffEl.className = "text-xs code-font text-brand-accentGreen font-bold";
+            } else {
+                diffEl.innerText = `+0.000s (기준값)`;
+                diffEl.className = "text-xs code-font text-slate-500 font-bold";
+            }
+        }
+
+
         // 4. Interactive Decryptor Puzzle (Escape Tab)
         function checkCipher(selectedVal) {
             const dot = document.getElementById('cipherStatusDot');
@@ -807,6 +926,59 @@
         const senderEmail = document.getElementById('senderEmail');
         const senderMsg = document.getElementById('senderMsg');
         const formFeedback = document.getElementById('formFeedback');
+        const guestbookList = document.getElementById('guestbookList');
+
+        // Initial default list of members: Empty array to make visitor the first registration
+        const defaultMockMembers = [];
+
+        // Safe HTML Scrubber to prevent XSS (Security robustness)
+        function escapeHTML(str) {
+            return str.replace(/[&<>'"]/g, 
+                tag => ({
+                    '&': '&amp;',
+                    '<': '&lt;',
+                    '>': '&gt;',
+                    "'": '&#39;',
+                    '"': '&quot;'
+                }[tag] || tag)
+            );
+        }
+
+        // Render Guestbook from LocalStorage
+        function renderGuestbook() {
+            let entries = JSON.parse(localStorage.getItem('party_roster_entries')) || [];
+
+            guestbookList.innerHTML = '';
+            
+            // Empty state UX rendering
+            if (entries.length === 0) {
+                guestbookList.innerHTML = `
+                    <div class="text-center py-10 border border-dashed border-slate-800 rounded-2xl">
+                        <i class="fa-solid fa-users-slash text-2xl text-slate-600 mb-2"></i>
+                        <div class="text-xs text-slate-500 code-font uppercase tracking-wider">NO_PARTY_MEMBERS_YET</div>
+                        <p class="text-[10px] text-slate-600 mt-1">첫 번째 공대원으로 등록하여 이 자리를 선점하세요!</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            // Render from newest to oldest
+            entries.slice().reverse().forEach(entry => {
+                const card = document.createElement('div');
+                card.className = "bg-brand-dark/50 border border-slate-800/60 rounded-xl p-4 transition-all duration-300 hover:border-emerald-500/20";
+                
+                card.innerHTML = `
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
+                        <span class="text-xs font-bold text-white code-font">
+                            ${escapeHTML(entry.name)} <span class="text-slate-500 font-normal">(${escapeHTML(entry.email)})</span>
+                        </span>
+                        <span class="text-[9px] code-font text-slate-600">${entry.date}</span>
+                    </div>
+                    <p class="text-xs text-slate-400 whitespace-pre-wrap leading-relaxed break-keep">${escapeHTML(entry.msg)}</p>
+                `;
+                guestbookList.appendChild(card);
+            });
+        }
 
         sendPayloadBtn.addEventListener('click', () => {
             const nameVal = senderName.value.trim();
@@ -826,8 +998,26 @@
             setTimeout(() => {
                 formFeedback.classList.remove('hidden', 'text-red-400');
                 formFeedback.classList.add('text-brand-accentGreen');
-                formFeedback.innerText = `✅ SUCCESS: 공대 지원서가 성공적으로 전달되었습니다!\n지원자 닉네임: ${nameVal} (${emailVal}) 님의 메시지가 등록되었습니다.`;
+                formFeedback.innerText = `✅ SUCCESS: 공대 지원서가 성공적으로 전달되었습니다!`;
                 
+                // Save new entry to LocalStorage
+                let entries = JSON.parse(localStorage.getItem('party_roster_entries')) || [];
+                const today = new Date();
+                const dateStr = today.getFullYear() + '-' + String(today.getMonth() + 1).padStart(2, '0') + '-' + String(today.getDate()).padStart(2, '0');
+                
+                entries.push({
+                    name: nameVal,
+                    email: emailVal,
+                    msg: msgVal,
+                    date: dateStr
+                });
+                
+                localStorage.setItem('party_roster_entries', JSON.stringify(entries));
+                
+                // Re-render
+                renderGuestbook();
+
+                // Clear input fields
                 senderName.value = "";
                 senderEmail.value = "";
                 senderMsg.value = "";
@@ -840,6 +1030,14 @@
                 }, 3000);
             }, 1200);
         });
+
+        // Initialize Router and Guestbook on Load
+        window.onload = function () {
+            // Start the animation on window load.
+            renderGuestbook();
+            calculateLaptime();
+            navigateTo(window.location.hash);
+        }
 
         // Dynamic Header Styling on scroll
         window.addEventListener('scroll', () => {
