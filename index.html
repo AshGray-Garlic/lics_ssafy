@@ -258,6 +258,14 @@
                                         <span class="text-sm font-semibold text-white">1997.07.28.</span>
                                     </div>
                                     <div class="bg-slate-900/40 p-3 rounded-xl border border-slate-800/50">
+                                        <span class="text-[10px] text-slate-500 block">EMAIL</span>
+                                        <a href="mailto:licsrang@gmail.com" class="text-sm font-semibold text-white hover:text-brand-accentGreen transition-colors">licsrang@gmail.com</a>
+                                    </div>
+                                    <div class="bg-slate-900/40 p-3 rounded-xl border border-slate-800/50">
+                                        <span class="text-[10px] text-slate-500 block">NICKNAME</span>
+                                        <span class="text-sm font-semibold text-white">마늘</span>
+                                    </div>
+                                    <div class="bg-slate-900/40 p-3 rounded-xl border border-slate-800/50">
                                         <span class="text-[10px] text-slate-500 block">MBTI PERSONALITY</span>
                                         <span class="text-sm font-semibold text-brand-accentBlue flex items-center gap-1.5">
                                             INFJ <span class="text-[10px] bg-cyan-500/10 px-1.5 py-0.5 rounded text-cyan-400 font-normal">옹호자</span>
@@ -442,7 +450,7 @@
                                         <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800/60">
                                             <span class="text-[10px] code-font text-emerald-400 block font-bold mb-1">로아 메인 오더 수행</span>
                                             <p class="text-xs text-slate-400 leading-relaxed">
-                                                스킬 쿨타임과 공대 버프 연계를 초 단위로 매핑하여 누수 없는 최강의 딜 사이클 유도
+                                                스킬 쿨타임 and 공대 버프 연계를 초 단위로 매핑하여 누수 없는 최강의 딜 사이클 유도
                                             </p>
                                         </div>
                                         <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800/60">
@@ -1047,6 +1055,11 @@
             } else {
                 header.classList.remove('bg-brand-dark/95', 'py-1', 'border-slate-800');
             }
+        });
+        
+        // Mobile menu toggle
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
         });
     </script>
 </body>
