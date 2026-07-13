@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>작은 디테일이 만드는 차이, 완벽을 향한 나의 기록</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0B0F19',
+                            card: '#161D30',
+                            accentGreen: '#10B981',
+                            accentBlue: '#06B6D4',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'SF Mono', 'Fira Code', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts for JetBrains Mono & Noto Sans KR -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #0B0F19;
+            color: #E2E8F0;
+            overflow-x: hidden;
+        }
+        .code-font {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        /* Custom Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B0F19;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1E293B;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #10B981;
+        }
+        /* Glowing neon line */
+        .neon-glow-green {
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+        }
+        .neon-glow-blue {
+            box-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
+        }
+        /* Text selection color */
+        ::selection {
+            background-color: rgba(16, 185, 129, 0.3);
+            color: #10B981;
+        }
+        /* Page transitions */
+        .page-view {
+            transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+        }
+        .page-view.hidden {
+            display: none !important;
+            opacity: 0;
+            transform: translateY(10px);
+        }
+    </style>
+</head>
+<body class="selection:bg-emerald-500/30 selection:text-emerald-400 flex flex-col min-h-screen justify-between">
+
+    <!-- Navigation Bar -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-brand-dark/90 backdrop-blur-md border-b border-slate-800/80 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="#home" class="code-font text-lg font-bold tracking-tight text-white flex items-center gap-2 group">
+                <span class="text-brand-accentGreen group-hover:text-brand-accentBlue transition-colors duration-300">&lt;</span>
+                <span>I AM</span>
+                <span class="text-brand-accentGreen group-hover:text-brand-accentBlue transition-colors duration-300">/&gt;</span>
+            </a>
+            
+            <!-- Multi-page SPA Dynamic Navigation -->
+            <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+                <a href="#home" class="nav-link py-5 px-1 border-b-2 border-transparent hover:text-brand-accentGreen transition-all duration-300 text-slate-400">철학 & 홈</a>
+                <a href="#experience" class="nav-link py-5 px-1 border-b-2 border-transparent hover:text-brand-accentGreen transition-all duration-300 text-slate-400">경험적 역량</a>
+                <a href="#deepfocus" class="nav-link py-5 px-1 border-b-2 border-transparent hover:text-brand-accentGreen transition-all duration-300 text-slate-400">몰입의 기록</a>
+                <a href="#contact" class="nav-link py-5 px-1 border-b-2 border-transparent hover:text-brand-accentGreen transition-all duration-300 text-slate-400">공대원 모집</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <a href="#contact" class="px-4 py-2 rounded-lg bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-brand-dark text-xs font-bold transition-all duration-300 shadow-md shadow-emerald-500/10 code-font">
+                    JOIN_PARTY();
+                </a>
+                <!-- Mobile Navigation Toggle Menu -->
+                <button id="mobileMenuBtn" class="md:hidden text-slate-400 hover:text-white transition-colors">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Dropout Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-brand-dark border-b border-slate-800/80 flex flex-col px-6 py-4 gap-4">
+            <a href="#home" class="mobile-nav-link text-sm font-medium text-slate-400 py-1">철학 & 홈</a>
+            <a href="#experience" class="mobile-nav-link text-sm font-medium text-slate-400 py-1">경험적 역량</a>
+            <a href="#deepfocus" class="mobile-nav-link text-sm font-medium text-slate-400 py-1">몰입의 기록</a>
+            <a href="#contact" class="mobile-nav-link text-sm font-medium text-slate-400 py-1">공대원 모집</a>
+        </div>
+    </header>
+
+    <!-- Main Dynamic Content Wrapper -->
+    <main class="flex-grow pt-16">
+
+        <!-- PAGE 1: HOME & PHILOSOPHY (Active by Default) -->
+        <div id="page-home" class="page-view opacity-100">
+            <!-- Hero / Intro Section -->
+            <section class="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
+                <!-- Technical Grid Background -->
+                <div class="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:24px_24px] opacity-30"></div>
+                <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-accentGreen/5 rounded-full filter blur-[100px]"></div>
+                <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-brand-accentBlue/5 rounded-full filter blur-[100px]"></div>
+
+                <div class="max-w-4xl mx-auto px-6 text-center relative z-10 py-12">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-card border border-emerald-500/20 text-brand-accentGreen text-xs code-font mb-6 animate-pulse">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand-accentGreen"></span>
+                        Status: Active & Searching for synergy
+                    </div>
+                    
+                    <h1 class="text-4xl sm:text-6xl font-black text-white tracking-tight leading-tight mb-6">
+                        작은 디테일이 만드는 차이,<br>
+                        <span class="bg-gradient-to-r from-emerald-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-[shimmer_4s_infinite_linear]">완벽을 향한 나의 기록</span>
+                    </h1>
+
+                    <!-- Fixed line breaks for the Korean description using break-keep and inline-block for precise control -->
+                    <p class="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed mb-10 break-keep">
+                        안녕하세요. 예외 없는 견고함과 정돈된 구조를 집요하게 추구하는 <span class="inline-block">프론트엔드 개발자입니다.</span> 타협하지 않는 몰입으로 사소한 일상과 취미마저 성장의 데이터로 정형화합니다.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <a href="#experience" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-brand-card hover:bg-slate-800 border border-slate-700 hover:border-brand-accentGreen text-white text-sm font-semibold tracking-wide transition-all duration-300 flex items-center justify-center gap-2 group shadow-lg">
+                            <span>역량 검증하기 (취미편)</span>
+                            <i class="fa-solid fa-arrow-right text-brand-accentGreen group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                        <a href="#contact" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-gradient-to-r from-emerald-500/10 to-cyan-500/10 hover:from-emerald-500/20 hover:to-cyan-500/20 border border-brand-accentGreen/30 text-brand-accentGreen text-sm font-semibold tracking-wide transition-all duration-300 flex items-center justify-center gap-2">
+                            <span class="code-font">프로젝트 공대원 모집</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Core Strengths Section (철학) -->
+            <section class="py-20 border-t border-slate-900 bg-slate-950/40 relative">
+                <div class="max-w-6xl mx-auto px-6">
+                    <div class="text-center max-w-xl mx-auto mb-16">
+                        <span class="text-brand-accentGreen code-font text-xs uppercase tracking-widest font-bold">CORE VALUE</span>
+                        <h2 class="text-3xl font-bold text-white mt-2">지독한 몰입과 철저함이 만든 3가지 필터</h2>
+                        <div class="w-12 h-1 bg-brand-accentGreen mx-auto mt-4 rounded-full"></div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <!-- Strength Card 1: Robustness -->
+                        <div class="bg-brand-card/60 backdrop-blur-sm border border-slate-800/80 p-8 rounded-2xl hover:border-brand-accentGreen/40 transition-all duration-300 group">
+                            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-brand-accentGreen mb-6 group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-users-viewfinder text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">유기적 협업과 팀워크</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                                공동의 목표 달성을 위해 실시간 소통 흐름을 방해하는 병목을 파악하고 제거합니다. 0.1초의 정확한 브리핑과 상호 신뢰를 바탕으로 견고한 얼라이언스를 구축합니다.
+                            </p>
+                            <div class="text-xs code-font text-brand-accentGreen">import { synergy } from 'teamwork';</div>
+                        </div>
+
+                        <!-- Strength Card 2: Clean Code -->
+                        <div class="bg-brand-card/60 backdrop-blur-sm border border-slate-800/80 p-8 rounded-2xl hover:border-brand-accentBlue/40 transition-all duration-300 group">
+                            <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-brand-accentBlue mb-6 group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-puzzle-piece text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">패턴 기반의 문제 해결</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                                아무리 복잡하게 얽힌 문제라도 숨겨진 출제 의도와 패턴을 집요하게 역추적해 풀어냅니다. 실마리를 나누고 구조화하여 최적의 동선(Path)을 개척합니다.
+                            </p>
+                            <div class="text-xs code-font text-brand-accentBlue">const solution = decrypt(mystery);</div>
+                        </div>
+
+                        <!-- Strength Card 3: Deep Immersion -->
+                        <div class="bg-brand-card/60 backdrop-blur-sm border border-slate-800/80 p-8 rounded-2xl hover:border-brand-accentGreen/40 transition-all duration-300 group">
+                            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-brand-accentGreen mb-6 group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-bolt text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">지독한 몰입도</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                                단순 유희에 그칠 수 있는 취미 생활조차 데이터를 추출하고 시각화하며, 시스템의 한계까지 몰입해 분석합니다. 타협 없는 완전함을 지향하는 개발 철학이 그대로 녹아있습니다.
+                            </p>
+                            <div class="text-xs code-font text-brand-accentGreen">while (focusing) { optimize() }</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- PAGE 2: EXPERIENCE PROOF -->
+        <div id="page-experience" class="page-view hidden opacity-0">
+            <section class="py-16 bg-brand-dark relative">
+                <div class="max-w-6xl mx-auto px-6">
+                    <div class="text-center max-w-xl mx-auto mb-16">
+                        <span class="text-brand-accentBlue code-font text-xs uppercase tracking-widest font-bold">EXPERIENCE PROOF</span>
+                        <h2 class="text-3xl font-bold text-white mt-2">취미로 입증하는 소프트 스킬</h2>
+                        <p class="text-slate-400 text-sm mt-3">단순한 레저를 넘어, 그 안에서 증명된 협업 감각과 논리적 문제 해결 과정을 확인해 보세요.</p>
+                        <div class="w-12 h-1 bg-brand-accentBlue mx-auto mt-4 rounded-full"></div>
+                    </div>
+
+                    <!-- Dashboard Grid Layout -->
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                        <!-- Left Nav Options (2 Hobbies) -->
+                        <div class="lg:col-span-4 flex flex-col gap-4">
+                            <button id="tabGame" class="w-full text-left p-6 rounded-2xl bg-brand-card border border-brand-accentGreen/30 hover:border-brand-accentGreen text-white transition-all duration-300 focus:outline-none flex items-start gap-4 shadow-xl">
+                                <div class="p-3 bg-emerald-500/10 text-brand-accentGreen rounded-xl">
+                                    <i class="fa-solid fa-gamepad text-2xl"></i>
+                                </div>
+                                <div class="flex-grow">
+                                    <span class="text-[10px] code-font text-brand-accentGreen font-bold block mb-1">01. TEAM WORK / CO-OP</span>
+                                    <h4 class="text-lg font-bold">온라인 게임 (배그 & 로아)</h4>
+                                    <p class="text-xs text-slate-400 mt-1">실시간 교전과 레이드 오더에서 훈련된 극치의 조직 조율력</p>
+                                </div>
+                            </button>
+
+                            <button id="tabEscape" class="w-full text-left p-6 rounded-2xl bg-brand-card/40 border border-slate-800 hover:border-brand-accentBlue text-slate-400 hover:text-white transition-all duration-300 focus:outline-none flex items-start gap-4">
+                                <div class="p-3 bg-cyan-500/10 text-brand-accentBlue rounded-xl">
+                                    <i class="fa-solid fa-key text-2xl"></i>
+                                </div>
+                                <div class="flex-grow">
+                                    <span class="text-[10px] code-font text-brand-accentBlue font-bold block mb-1">02. DECRYPTION / LOGIC</span>
+                                    <h4 class="text-lg font-bold text-white">오프라인 방탈출</h4>
+                                    <p class="text-xs text-slate-400 mt-1">제한 시간 60분 속에서 숨겨진 패턴과 단서를 구조화하는 디버깅</p>
+                                </div>
+                            </button>
+                        </div>
+
+                        <!-- Right Display Terminal Content Area -->
+                        <div class="lg:col-span-8 bg-brand-card border border-slate-800 rounded-3xl overflow-hidden shadow-2xl flex flex-col justify-between">
+                            <!-- Terminal Header -->
+                            <div class="bg-slate-900 px-6 py-4 border-b border-slate-800 flex items-center justify-between">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                                    <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                                    <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                                    <span id="terminalTitle" class="text-xs text-slate-400 code-font ml-2">Teamplay_Coordinations.sh</span>
+                                </div>
+                                <span class="text-[10px] code-font text-emerald-400 flex items-center gap-1.5 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
+                                    <span class="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-ping"></span> Live Analyzer
+                                </span>
+                            </div>
+
+                            <!-- Interactive Showcase Container -->
+                            <div class="p-8 flex-grow">
+                                <!-- GAME PANEL (Default Active) -->
+                                <div id="panelGame" class="space-y-6 block">
+                                    <div>
+                                        <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                                            <i class="fa-solid fa-headset text-brand-accentGreen"></i> 
+                                            배그/로아로 다져진 실시간 브리핑과 시너지 최적화
+                                        </h3>
+                                        <p class="text-sm text-slate-400 mt-2 leading-relaxed">
+                                            배틀그라운드의 긴박한 대치 상황이나 로스트아크의 8인 엔드 게임 레이드에서는 사소한 의사소통 미스가 즉시 전멸(Crash)로 이어집니다. 저는 팀 내에서 메인 브리핑과 파티 시너지 버프 배치를 총괄하며 최선의 협업 체계를 구축합니다.
+                                        </p>
+                                    </div>
+
+                                    <!-- Interactive Game Raid Simulator -->
+                                    <div class="bg-brand-dark/60 rounded-2xl border border-slate-800 p-5">
+                                        <h4 class="text-xs font-bold text-slate-400 code-font mb-3 uppercase tracking-wider flex items-center gap-2">
+                                            <i class="fa-solid fa-circle-nodes text-brand-accentGreen"></i> INTERACTIVE SYN_DEALER SIMULATOR
+                                        </h4>
+                                        <p class="text-xs text-slate-400 mb-4">아래 시너지 버프 스위치를 켜서 공대 시너지가 유기적으로 증폭하는 최적의 합을 맞춰보세요!</p>
+                                        
+                                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
+                                            <button onclick="toggleSynergy('synBuff', 1.2)" id="synBuff" class="p-3 bg-slate-900 border border-slate-800 hover:border-emerald-500 rounded-xl text-left transition-all duration-200">
+                                                <div class="flex items-center justify-between">
+                                                    <span class="text-xs font-bold text-white">공격력 버프 ⚔️</span>
+                                                    <span id="synBuffIndicator" class="w-2 h-2 rounded-full bg-slate-700"></span>
+                                                </div>
+                                                <span class="text-[10px] text-slate-500 code-font block mt-1">Multiplier x1.2</span>
+                                            </button>
+
+                                            <button onclick="toggleSynergy('synCrit', 1.15)" id="synCrit" class="p-3 bg-slate-900 border border-slate-800 hover:border-emerald-500 rounded-xl text-left transition-all duration-200">
+                                                <div class="flex items-center justify-between">
+                                                    <span class="text-xs font-bold text-white">치명타 시너지 🎯</span>
+                                                    <span id="synCritIndicator" class="w-2 h-2 rounded-full bg-slate-700"></span>
+                                                </div>
+                                                <span class="text-[10px] text-slate-500 code-font block mt-1">Multiplier x1.15</span>
+                                            </button>
+
+                                            <button onclick="toggleSynergy('synDebuff', 1.1)" id="synDebuff" class="p-3 bg-slate-900 border border-slate-800 hover:border-emerald-500 rounded-xl text-left transition-all duration-200">
+                                                <div class="flex items-center justify-between">
+                                                    <span class="text-xs font-bold text-white">방어력 감소 🛡️</span>
+                                                    <span id="synDebuffIndicator" class="w-2 h-2 rounded-full bg-slate-700"></span>
+                                                </div>
+                                                <span class="text-[10px] text-slate-500 code-font block mt-1">Multiplier x1.1</span>
+                                            </button>
+                                        </div>
+
+                                        <div class="bg-brand-dark rounded-xl p-4 border border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4">
+                                            <div>
+                                                <div class="text-xs text-slate-500 code-font">EXPECTED_TEAM_DAMAGE_OUTPUT</div>
+                                                <div id="damageOutputText" class="text-2xl font-black text-brand-accentGreen code-font mt-1">100.0% (기본값)</div>
+                                            </div>
+                                            <div class="w-full sm:w-1/2">
+                                                <div class="h-3 bg-slate-900 border border-slate-800 rounded-full overflow-hidden">
+                                                    <div id="damageProgressBar" class="h-full bg-gradient-to-r from-emerald-500 to-cyan-500 transition-all duration-500" style="width: 30%"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                        <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800/60">
+                                            <span class="text-[10px] code-font text-emerald-400 block font-bold mb-1">로아 메인 오더 수행</span>
+                                            <p class="text-xs text-slate-400 leading-relaxed">
+                                                스킬 쿨타임과 공대 버프 연계를 초 단위로 매핑하여 누수 없는 최강의 딜 사이클 유도
+                                            </p>
+                                        </div>
+                                        <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800/60">
+                                            <span class="text-[10px] code-font text-emerald-400 block font-bold mb-1">배그 유동적 템포 조절</span>
+                                            <p class="text-xs text-slate-400 leading-relaxed">
+                                                정보가 왜곡되기 쉬운 혼란 상태에서 전파 속도를 극대화한 간결화 브리핑 수립
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- ESCAPE PANEL (Hidden initially) -->
+                                <div id="panelEscape" class="space-y-6 hidden">
+                                    <div>
+                                        <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                                            <i class="fa-solid fa-eye text-brand-accentBlue"></i> 
+                                            숨은 단서를 포착하는 센스와 유기적 추론 능력
+                                        </h3>
+                                        <p class="text-sm text-slate-400 mt-2 leading-relaxed">
+                                            방탈출은 방 안의 수많은 사물과 텍스트 중에서 '진짜 의미 있는 단서'와 '그것이 가리키는 문제'를 정밀하게 연결하는 고도의 센스가 필요한 영역입니다. 공간의 메타데이터를 빠르게 인지하고 구조적으로 추론하여, 얽혀 있는 장애물(Blockers)을 막힘없이 뚫어내는 해결력을 보여줍니다.
+                                        </p>
+                                    </div>
+
+                                    <!-- Interactive Decryptor Puzzle -->
+                                    <div class="bg-brand-dark/60 rounded-2xl border border-slate-800 p-5">
+                                        <h4 class="text-xs font-bold text-slate-400 code-font mb-3 uppercase tracking-wider flex items-center gap-2">
+                                            <i class="fa-solid fa-terminal text-brand-accentBlue"></i> ESCAPE_ROOM CLUE FINDER
+                                        </h4>
+                                        <p class="text-xs text-slate-400 mb-4">현재 공간의 기하학적 전조 단서들을 확인했습니다. 빈칸에 들어올 다음 논리적 수치는 무엇일까요? <span class="text-brand-accentBlue font-bold underline">2, 4, 8, 16, [ ? ]</span></p>
+                                        
+                                        <div class="grid grid-cols-3 gap-3 mb-6">
+                                            <button onclick="checkCipher(24)" class="py-3 bg-slate-900 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 text-slate-300 rounded-xl font-semibold code-font transition-all">
+                                                24
+                                            </button>
+                                            <button onclick="checkCipher(32)" class="py-3 bg-slate-900 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 text-slate-300 rounded-xl font-semibold code-font transition-all">
+                                                32
+                                            </button>
+                                            <button onclick="checkCipher(64)" class="py-3 bg-slate-900 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 text-slate-300 rounded-xl font-semibold code-font transition-all">
+                                                64
+                                            </button>
+                                        </div>
+
+                                        <div class="bg-brand-dark rounded-xl p-4 border border-slate-800/80">
+                                            <div class="flex items-center gap-2">
+                                                <span id="cipherStatusDot" class="w-2.5 h-2.5 rounded-full bg-yellow-500"></span>
+                                                <span id="cipherStatusText" class="text-xs font-bold text-yellow-400 code-font">WAITING_FOR_DECRYPTION</span>
+                                            </div>
+                                            <p id="cipherFeedback" class="text-xs text-slate-400 mt-2">
+                                                흩어진 단서들 간의 패턴과 연관관계를 정확히 감지하여 완벽하게 디버깅해 보세요.
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                        <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800/60">
+                                            <span class="text-[10px] code-font text-cyan-400 block font-bold mb-1">단서 포착 & 우선순위 필터</span>
+                                            <p class="text-xs text-slate-400 leading-relaxed">
+                                                시간 지연을 방지하기 위해 단서의 중요도와 유효성을 빠르고 직관적으로 판별하는 능력
+                                            </p>
+                                        </div>
+                                        <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800/60">
+                                            <span class="text-[10px] code-font text-cyan-400 block font-bold mb-1">입체적 가설 수립</span>
+                                            <p class="text-xs text-slate-400 leading-relaxed">
+                                                단서가 단절된 교착 상태에서 다른 단서와의 연계성을 찾고 다각도의 논리적 가설을 전개
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- PAGE 3: DEEP IMMERSION / DEEP FOCUS -->
+        <div id="page-deepfocus" class="page-view hidden opacity-0">
+            <section class="py-16 bg-slate-950 relative overflow-hidden">
+                <!-- Background light effect -->
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl h-[400px] bg-brand-accentGreen/5 rounded-full filter blur-[120px] pointer-events-none"></div>
+
+                <div class="max-w-6xl mx-auto px-6 relative z-10">
+                    <div class="text-center max-w-xl mx-auto mb-16">
+                        <span class="text-brand-accentGreen code-font text-xs uppercase tracking-widest font-bold">DEEP FOCUS</span>
+                        <h2 class="text-3xl font-bold text-white mt-2">사소한 곳에서도 발휘되는 지독한 몰입</h2>
+                        <p class="text-slate-400 text-sm mt-3">단순한 레저도 집요한 기록과 패턴 분석을 거쳐 성장의 기반으로 변모시킵니다.</p>
+                        <div class="w-12 h-1 bg-brand-accentGreen mx-auto mt-4 rounded-full"></div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <!-- Hobby 1: Room Escape Analytics -->
+                        <div class="bg-brand-card/40 border border-slate-800/80 rounded-2xl overflow-hidden hover:border-emerald-500/30 transition-all duration-300 flex flex-col justify-between">
+                            <div class="relative overflow-hidden h-48 w-full group">
+                                <img src="방탈출.jpg" alt="방탈출 분석" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.src='https://placehold.co/600x400/161D30/10B981?text=Escape+Room+Analysis'">
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent"></div>
+                            </div>
+                            <div class="p-6 flex-grow flex flex-col justify-between">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <span class="p-2.5 rounded-lg bg-emerald-500/10 text-brand-accentGreen">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                    </span>
+                                    <div>
+                                        <h3 class="text-lg font-bold text-white">방탈출 단서 직관 & 고속 추론</h3>
+                                        <span class="text-[10px] code-font text-slate-500">CLUE DETECTION SENSE</span>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-slate-400 leading-relaxed mb-6">
+                                    방탈출 테마에 진입하면 조명, 소품의 아주 미세한 변칙성마저 본능적으로 인지합니다. 이질적인 두 가지 단서 속 숨겨진 출제자의 인과관계를 즉각 발견하고 추론해 냄으로써, 복잡하고 막막한 문제를 예리하고 명료하게 해결해 나가는 극단의 직관적 문제 해결 능력을 지향합니다.
+                                </p>
+                                
+                                <!-- Visual representation / Stats bar -->
+                                <div class="space-y-2">
+                                    <div class="flex items-center justify-between text-xs code-font">
+                                        <span class="text-slate-400">단서 직관 발견율 (Clue Detection)</span>
+                                        <span class="text-brand-accentGreen">94%</span>
+                                    </div>
+                                    <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                                        <div class="h-full bg-brand-accentGreen w-[94%]"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Hobby 2: MMO Frame Tactics -->
+                        <div class="bg-brand-card/40 border border-slate-800/80 rounded-2xl overflow-hidden hover:border-cyan-500/30 transition-all duration-300 flex flex-col justify-between">
+                            <div class="relative overflow-hidden h-48 w-full group">
+                                <img src="로스트아크.jpg" alt="로스트아크 프레임 분석" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.src='https://placehold.co/600x400/161D30/06B6D4?text=LostArk+Frame+Tactics'">
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent"></div>
+                            </div>
+                            <div class="p-6 flex-grow flex flex-col justify-between">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <span class="p-2.5 rounded-lg bg-cyan-500/10 text-brand-accentBlue">
+                                        <i class="fa-solid fa-chart-line"></i>
+                                    </span>
+                                    <div>
+                                        <h3 class="text-lg font-bold text-white">게임 프레임 택틱 정량화</h3>
+                                        <span class="text-[10px] code-font text-slate-500">FRAME-PERFECT CO-OP</span>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-slate-400 leading-relaxed mb-6">
+                                    로스트아크 레이드 보스의 고유 전조 모션을 프레임 단위 동영상으로 분석해 대시 시트화했습니다. 파티원들이 전조 0.3초 내에 직관적으로 회피하거나 기믹 파훼 버프를 맞춤형으로 발동할 수 있도록 가이드라인을 제공합니다.
+                                </p>
+                                
+                                <!-- Visual representation / Stats bar -->
+                                <div class="space-y-2">
+                                    <div class="flex items-center justify-between text-xs code-font">
+                                        <span class="text-slate-400">오더 기믹 파훼 성공률</span>
+                                        <span class="text-brand-accentBlue">98.5%</span>
+                                    </div>
+                                    <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                                        <div class="h-full bg-brand-accentBlue w-[98.5%]"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Hobby 3: Sim Racing Optimization -->
+                        <div class="bg-brand-card/40 border border-slate-800/80 rounded-2xl overflow-hidden hover:border-emerald-500/30 transition-all duration-300 flex flex-col justify-between">
+                            <div class="relative overflow-hidden h-48 w-full group">
+                                <img src="심레이싱.jpg" alt="심레이싱 주행" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.src='https://placehold.co/600x400/161D30/10B981?text=Sim+Racing+Telemetry'">
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent"></div>
+                            </div>
+                            <div class="p-6 flex-grow flex flex-col justify-between">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <span class="p-2.5 rounded-lg bg-emerald-500/10 text-brand-accentGreen">
+                                        <i class="fa-solid fa-car-side"></i>
+                                    </span>
+                                    <div>
+                                        <h3 class="text-lg font-bold text-white">심레이싱 최적 주행 라인 설계</h3>
+                                        <span class="text-[10px] code-font text-slate-500">1/1000s TELEMETRY OPTIMIZATION</span>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-slate-400 leading-relaxed mb-6">
+                                    단순한 드라이빙 게임을 넘어 주행 중 타이어의 마찰력(Tire Grip Limit), 브레이킹 압력 데이터, 하중 이동을 텔레메트리 뷰어로 피드백해 분석합니다. 최단 주행 경로인 Out-In-Out과 에이펙스(Apex) 통과 속도를 극단으로 제어해 1/1000초 단축을 집요하게 이끌어냅니다.
+                                </p>
+                                
+                                <!-- Visual representation / Stats bar -->
+                                <div class="space-y-2">
+                                    <div class="flex items-center justify-between text-xs code-font">
+                                        <span class="text-slate-400">최적 레이싱 라인 일치도 (Apex Consistency)</span>
+                                        <span class="text-brand-accentGreen">99.1%</span>
+                                    </div>
+                                    <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                                        <div class="h-full bg-brand-accentGreen w-[99.1%]"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- PAGE 4: CONTACT & SYNERGY -->
+        <div id="page-contact" class="page-view hidden opacity-0">
+            <section class="py-16 bg-brand-dark relative">
+                <div class="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:32px_32px] opacity-10"></div>
+                
+                <div class="max-w-4xl mx-auto px-6 relative z-10">
+                    <div class="bg-gradient-to-br from-brand-card to-slate-950 p-8 sm:p-12 rounded-3xl border border-emerald-500/10 relative overflow-hidden shadow-2xl">
+                        <!-- Background ambient light inside CTA -->
+                        <div class="absolute -right-16 -bottom-16 w-64 h-64 bg-cyan-500/5 rounded-full filter blur-3xl"></div>
+
+                        <div class="text-center sm:text-left max-w-2xl">
+                            <span class="inline-block px-3 py-1.5 bg-emerald-500/10 border border-emerald-500/20 text-brand-accentGreen rounded-lg text-xs font-bold code-font mb-4">
+                                &lt;JOIN_US /&gt;
+                            </span>
+                            
+                            <h3 class="text-2xl sm:text-4xl font-bold text-white mb-4 tracking-tight break-keep">
+                                함께 빈틈없는 코드를 고민할 공대원을 모집합니다
+                            </h3>
+                            
+                            <p class="text-sm sm:text-base text-slate-400 leading-relaxed mb-8 break-keep">
+                                문제 해결 시 끝까지 근본을 찾아 해결해 내는 집요함, 협업 상황에서 한 명의 예외 낙오자도 없도록 시너지를 유도하는 조직 감각에 매력을 느끼는 동료를 환영합니다.
+                            </p>
+
+                            <!-- Interactive Connection Box -->
+                            <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 mb-8 text-left">
+                                <h4 class="text-xs font-bold uppercase tracking-wider text-slate-500 code-font mb-4 flex items-center gap-2">
+                                    <span class="w-2 h-2 rounded-full bg-brand-accentGreen"></span> 공대 지원서
+                                </h4>
+                                
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                                    <div>
+                                        <label class="block text-xs font-semibold text-slate-400 mb-2 code-font">닉네임 = </label>
+                                        <input id="senderName" type="text" placeholder="'동료 개발자'" class="w-full bg-brand-dark/80 border border-slate-800 focus:border-brand-accentGreen focus:ring-1 focus:ring-brand-accentGreen rounded-xl px-4 py-3 text-sm text-white code-font placeholder-slate-600 outline-none transition-all">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-semibold text-slate-400 mb-2 code-font">플레이어 이메일 = </label>
+                                        <input id="senderEmail" type="email" placeholder="'collaborator@dev.com'" class="w-full bg-brand-dark/80 border border-slate-800 focus:border-brand-accentGreen focus:ring-1 focus:ring-brand-accentGreen rounded-xl px-4 py-3 text-sm text-white code-font placeholder-slate-600 outline-none transition-all">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-400 mb-2 code-font">자기소개 = </label>
+                                    <textarea id="senderMsg" rows="3" placeholder="'코드 리뷰, 프로젝트, 스터디 참여 등 자유로운 제안을 작성해 주세요.'" class="w-full bg-brand-dark/80 border border-slate-800 focus:border-brand-accentGreen focus:ring-1 focus:ring-brand-accentGreen rounded-xl px-4 py-3 text-sm text-white code-font placeholder-slate-600 outline-none transition-all resize-none"></textarea>
+                                </div>
+
+                                <!-- Feedback Message Area -->
+                                <div id="formFeedback" class="mt-4 text-xs font-semibold code-font hidden"></div>
+
+                                <div class="mt-6 flex justify-end">
+                                    <button id="sendPayloadBtn" class="px-6 py-3 bg-brand-accentGreen text-brand-dark hover:bg-emerald-400 rounded-xl text-xs font-black code-font tracking-wider transition-all duration-300 shadow-md shadow-emerald-500/10 flex items-center gap-2">
+                                        <i class="fa-solid fa-paper-plane"></i> SEND_MESSAGE();
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 py-12 border-t border-slate-900 text-slate-500 text-xs code-font">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-2">
+                <span class="text-brand-accentGreen">&lt;I AM /&gt;</span>
+                <span>© 2026. All rights reserved.</span>
+            </div>
+            
+            <div class="flex items-center gap-6">
+                <a href="https://github.com/AshGray-Garlic/" target="_blank" rel="noopener noreferrer" class="hover:text-brand-accentGreen transition-colors duration-200">
+                    <i class="fa-brands fa-github text-base"></i> GitHub
+                </a>
+                <a href="mailto:licsrang@gmail.com" class="hover:text-brand-accentGreen transition-colors duration-200">
+                    <i class="fa-solid fa-envelope text-base"></i> Email
+                </a>
+                <a href="#" class="hover:text-brand-accentGreen transition-colors duration-200">
+                    <i class="fa-brands fa-linkedin text-base"></i> LinkedIn
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Logic scripts -->
+    <script>
+        // 1. Multi-page Dynamic Router
+        const pageViews = {
+            home: document.getElementById('page-home'),
+            experience: document.getElementById('page-experience'),
+            deepfocus: document.getElementById('page-deepfocus'),
+            contact: document.getElementById('page-contact')
+        };
+
+        const navLinks = document.querySelectorAll('.nav-link');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+
+        function navigateTo(targetHash) {
+            const pageId = targetHash.replace('#', '') || 'home';
+            
+            // Validate if targeted route exists, fallback to home
+            const validPageId = pageViews[pageId] ? pageId : 'home';
+
+            // Hide and Reset active layouts
+            Object.keys(pageViews).forEach(key => {
+                const view = pageViews[key];
+                view.classList.add('hidden');
+                view.classList.remove('opacity-100');
+                view.classList.add('opacity-0');
+            });
+
+            // Display Active Page with Animation Frame
+            const activeView = pageViews[validPageId];
+            activeView.classList.remove('hidden');
+            
+            requestAnimationFrame(() => {
+                setTimeout(() => {
+                    activeView.classList.remove('opacity-0');
+                    activeView.classList.add('opacity-100');
+                }, 50);
+            });
+
+            // Update Navigation Menu Active Status
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === `#${validPageId}`) {
+                    link.classList.add('text-brand-accentGreen', 'border-brand-accentGreen');
+                    link.classList.remove('text-slate-400', 'border-transparent');
+                } else {
+                    link.classList.remove('text-brand-accentGreen', 'border-brand-accentGreen');
+                    link.classList.add('text-slate-400', 'border-transparent');
+                }
+            });
+
+            // Update Mobile Menu Links Active Status
+            mobileNavLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === `#${validPageId}`) {
+                    link.classList.add('text-brand-accentGreen', 'font-bold');
+                    link.classList.remove('text-slate-400');
+                } else {
+                    link.classList.remove('text-brand-accentGreen', 'font-bold');
+                    link.classList.add('text-slate-400');
+                }
+            });
+
+            // Close Mobile Dropdown on navigation
+            mobileMenu.classList.add('hidden');
+
+            // Scroll cleanly back to top
+            window.scrollTo({ top: 0, behavior: 'instant' });
+        }
+
+        // Router Events
+        window.addEventListener('hashchange', () => {
+            navigateTo(window.location.hash);
+        });
+
+        // Initialize Router on Load
+        window.addEventListener('load', () => {
+            navigateTo(window.location.hash);
+        });
+
+        // Mobile Menu Button Toggle
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+
+        // 2. Hobby Tab Toggle (Game vs Escape inside Experience View)
+        const tabGame = document.getElementById('tabGame');
+        const tabEscape = document.getElementById('tabEscape');
+        const panelGame = document.getElementById('panelGame');
+        const panelEscape = document.getElementById('panelEscape');
+        const terminalTitle = document.getElementById('terminalTitle');
+
+        tabGame.addEventListener('click', () => {
+            tabGame.classList.add('bg-brand-card', 'border-brand-accentGreen/30', 'text-white');
+            tabGame.classList.remove('bg-brand-card/40', 'border-slate-800', 'text-slate-400');
+            
+            tabEscape.classList.add('bg-brand-card/40', 'border-slate-800', 'text-slate-400');
+            tabEscape.classList.remove('bg-brand-card', 'border-brand-accentBlue/30', 'text-white');
+
+            panelGame.classList.remove('hidden');
+            panelGame.classList.add('block');
+            panelEscape.classList.add('hidden');
+            panelEscape.classList.remove('block');
+
+            terminalTitle.innerText = "Teamplay_Coordinations.sh";
+        });
+
+        tabEscape.addEventListener('click', () => {
+            tabEscape.classList.add('bg-brand-card', 'border-brand-accentBlue/30', 'text-white');
+            tabEscape.classList.remove('bg-brand-card/40', 'border-slate-800', 'text-slate-400');
+
+            tabGame.classList.add('bg-brand-card/40', 'border-slate-800', 'text-slate-400');
+            tabGame.classList.remove('bg-brand-card', 'border-brand-accentGreen/30', 'text-white');
+
+            panelEscape.classList.remove('hidden');
+            panelEscape.classList.add('block');
+            panelGame.classList.add('hidden');
+            panelGame.classList.remove('block');
+
+            terminalTitle.innerText = "Logical_Problem_Solving.js";
+        });
+
+
+        // 3. Interactive Synergy Simulator (Game Tab)
+        const activeSynergies = {
+            synBuff: false,
+            synCrit: false,
+            synDebuff: false
+        };
+        const baseMultipliers = {
+            synBuff: 1.2,
+            synCrit: 1.15,
+            synDebuff: 1.1
+        };
+
+        function toggleSynergy(id, multiplier) {
+            activeSynergies[id] = !activeSynergies[id];
+            
+            const element = document.getElementById(id);
+            const indicator = document.getElementById(id + 'Indicator');
+            
+            if (activeSynergies[id]) {
+                element.classList.add('border-brand-accentGreen', 'bg-emerald-950/20');
+                indicator.classList.remove('bg-slate-700');
+                indicator.classList.add('bg-brand-accentGreen', 'neon-glow-green', 'animate-pulse');
+            } else {
+                element.classList.remove('border-brand-accentGreen', 'bg-emerald-950/20');
+                indicator.classList.add('bg-slate-700');
+                indicator.classList.remove('bg-brand-accentGreen', 'neon-glow-green', 'animate-pulse');
+            }
+
+            calculateSynergy();
+        }
+
+        function calculateSynergy() {
+            let totalMultiplier = 1.0;
+            if (activeSynergies.synBuff) totalMultiplier *= baseMultipliers.synBuff;
+            if (activeSynergies.synCrit) totalMultiplier *= baseMultipliers.synCrit;
+            if (activeSynergies.synDebuff) totalMultiplier *= baseMultipliers.synDebuff;
+
+            const finalDamage = (totalMultiplier * 100).toFixed(1);
+            
+            const textEl = document.getElementById('damageOutputText');
+            const progressEl = document.getElementById('damageProgressBar');
+
+            textEl.innerText = `${finalDamage}% ${finalDamage > 100 ? '⚡ SYNERGY ACTIVATED' : '(기본값)'}`;
+            
+            const visualPercent = Math.min(100, Math.max(30, 30 + (totalMultiplier - 1.0) * 135));
+            progressEl.style.width = `${visualPercent}%`;
+        }
+
+        calculateSynergy();
+
+
+        // 4. Interactive Decryptor Puzzle (Escape Tab)
+        function checkCipher(selectedVal) {
+            const dot = document.getElementById('cipherStatusDot');
+            const text = document.getElementById('cipherStatusText');
+            const feedback = document.getElementById('cipherFeedback');
+
+            if (selectedVal === 32) {
+                dot.className = "w-2.5 h-2.5 rounded-full bg-brand-accentGreen neon-glow-green animate-ping";
+                text.className = "text-xs font-bold text-brand-accentGreen code-font";
+                text.innerText = "SUCCESS_ROOM_ESCAPED (00:00.10s left)";
+                feedback.className = "text-xs text-brand-accentGreen mt-2 font-medium";
+                feedback.innerText = "🎉 뛰어난 통찰력입니다! 2의 거듭제곱 수열 패턴(2^n)을 빠르게 분석하여 누락된 핵심 단서인 32(2^5)를 입체적으로 유추해 자물쇠를 해제했습니다. 수많은 소음 속에서 본질적인 연결점을 찾아 디버깅하는 능력을 입증하셨습니다.";
+            } else {
+                dot.className = "w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse";
+                text.className = "text-xs font-bold text-red-500 code-font";
+                text.innerText = "DECRYPTION_FAILED: WRONG_CODE";
+                feedback.className = "text-xs text-red-400 mt-2";
+                feedback.innerText = "❌ 입력하신 단서로는 장치가 반응하지 않습니다. 전조가 보여주는 인과적 규칙을 차분히 재조사해 보세요.";
+            }
+        }
+
+
+        // 5. Contact Form Submission
+        const sendPayloadBtn = document.getElementById('sendPayloadBtn');
+        const senderName = document.getElementById('senderName');
+        const senderEmail = document.getElementById('senderEmail');
+        const senderMsg = document.getElementById('senderMsg');
+        const formFeedback = document.getElementById('formFeedback');
+
+        sendPayloadBtn.addEventListener('click', () => {
+            const nameVal = senderName.value.trim();
+            const emailVal = senderEmail.value.trim();
+            const msgVal = senderMsg.value.trim();
+
+            if (!nameVal || !emailVal || !msgVal) {
+                formFeedback.classList.remove('hidden', 'text-brand-accentGreen');
+                formFeedback.classList.add('text-red-400');
+                formFeedback.innerText = "⚠️ SYSTEM STATUS: validation_failed (모든 입력 칸을 완벽하게 채워주세요.)";
+                return;
+            }
+
+            sendPayloadBtn.disabled = true;
+            sendPayloadBtn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> TRANSMITTING...`;
+            
+            setTimeout(() => {
+                formFeedback.classList.remove('hidden', 'text-red-400');
+                formFeedback.classList.add('text-brand-accentGreen');
+                formFeedback.innerText = `✅ SUCCESS: 공대 지원서가 성공적으로 전달되었습니다!\n지원자 닉네임: ${nameVal} (${emailVal}) 님의 메시지가 등록되었습니다.`;
+                
+                senderName.value = "";
+                senderEmail.value = "";
+                senderMsg.value = "";
+                
+                sendPayloadBtn.disabled = false;
+                sendPayloadBtn.innerHTML = `<i class="fa-solid fa-check"></i> DISPATCHED;`;
+                
+                setTimeout(() => {
+                    sendPayloadBtn.innerHTML = `<i class="fa-solid fa-paper-plane"></i> SEND_MESSAGE();`;
+                }, 3000);
+            }, 1200);
+        });
+
+        // Dynamic Header Styling on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('bg-brand-dark/95', 'py-1', 'border-slate-800');
+            } else {
+                header.classList.remove('bg-brand-dark/95', 'py-1', 'border-slate-800');
+            }
+        });
+    </script>
+</body>
+</html>
